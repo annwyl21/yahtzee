@@ -1,5 +1,5 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Run pytest
+run-name: ${{ github.actor }} is trying to test yahtzee calculator using GitHub Actions 🚀
 on: [push]
 jobs:
   Explore-GitHub-Actions:
