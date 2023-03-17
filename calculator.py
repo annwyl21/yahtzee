@@ -73,9 +73,9 @@ class Calculator:
                 lower_score_dict["four_of_a_kind"] = kind_four[0]
 
         # score three of a kind
-        if 3 in self.dice_count():
-            kind_three = [3*i for i in range(0,7) if self._dice_roll.count(i) == 3]
-            lower_score_dict["three_of_a_kind"] = kind_three[0]
+        # if 3 in self.dice_count():
+        #     kind_three = [3*i for i in range(0,7) if self._dice_roll.count(i) == 3]
+        #     lower_score_dict["three_of_a_kind"] = kind_three[0]
 
         # score small & large straight
         matches = 0
