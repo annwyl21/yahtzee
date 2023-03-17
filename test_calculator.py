@@ -1,5 +1,5 @@
 import pytest
-from yahtzee_calc import Yahtzee_calc
+from calculator import Calculator
 
 # Test upper section .get_upper_score()
 
@@ -10,7 +10,7 @@ from yahtzee_calc import Yahtzee_calc
         ([2, 3, 5, 5, 3], 0)
     ])
 def test_aces(dice_roll, answer):
-    results = Yahtzee_calc(dice_roll).calculate_upper_score()
+    results = Calculator(dice_roll).calculate_upper_score()
     assert results["aces"] == answer, f"Total score of aces is incorrect {answer}"
 
 @pytest.mark.parametrize("dice_roll, answer", [
@@ -19,7 +19,7 @@ def test_aces(dice_roll, answer):
         ([4, 2, 3, 2, 6], 4)
     ])
 def test_twos(dice_roll, answer):
-    results = Yahtzee_calc(dice_roll).calculate_upper_score()
+    results = Calculator(dice_roll).calculate_upper_score()
     assert results["twos"] == answer, "Total score of twos is incorrect"
 
 @pytest.mark.parametrize("dice_roll, answer", [
@@ -28,7 +28,7 @@ def test_twos(dice_roll, answer):
         ([4, 3, 1, 3, 6], 6)
     ])
 def test_threes(dice_roll, answer):
-    results = Yahtzee_calc(dice_roll).calculate_upper_score()
+    results = Calculator(dice_roll).calculate_upper_score()
     assert results["threes"] == answer, "Total score of threes is incorrect"
 
 @pytest.mark.parametrize("dice_roll, answer", [
@@ -37,7 +37,7 @@ def test_threes(dice_roll, answer):
         ([1, 4, 2, 4, 6], 8)
     ])
 def test_fours(dice_roll, answer):
-    results = Yahtzee_calc(dice_roll).calculate_upper_score()
+    results = Calculator(dice_roll).calculate_upper_score()
     assert results["fours"] == answer, "Total score of fours is incorrect"
 
 @pytest.mark.parametrize("dice_roll, answer", [
@@ -46,7 +46,7 @@ def test_fours(dice_roll, answer):
         ([1, 5, 2, 5, 6], 10)
     ])
 def test_fives(dice_roll, answer):
-    results = Yahtzee_calc(dice_roll).calculate_upper_score()
+    results = Calculator(dice_roll).calculate_upper_score()
     assert results["fives"] == answer, "Total score of fives is incorrect"
 
 @pytest.mark.parametrize("dice_roll, answer", [
@@ -55,7 +55,7 @@ def test_fives(dice_roll, answer):
         ([1, 6, 2, 6, 3], 12)
     ])
 def test_sixes(dice_roll, answer):
-    results = Yahtzee_calc(dice_roll).calculate_upper_score()
+    results = Calculator(dice_roll).calculate_upper_score()
     assert results["sixes"] == answer, "Total score of sixes is incorrect"
 
 # Test lower section
@@ -67,7 +67,7 @@ def test_sixes(dice_roll, answer):
         ([2, 1, 2, 3, 2], 6)
     ])
 def test_three_of_a_kind(dice_roll, answer):
-    results = Yahtzee_calc(dice_roll).calculate_lower_score()
+    results = Calculator(dice_roll).calculate_lower_score()
     assert results["three_of_a_kind"] == answer, "Three of a kind is incorrect"
 
 @pytest.mark.parametrize("dice_roll, answer", [
@@ -77,7 +77,7 @@ def test_three_of_a_kind(dice_roll, answer):
         ([2, 1, 2, 2, 2], 8)
     ])
 def test_four_of_a_kind(dice_roll, answer):
-    results = Yahtzee_calc(dice_roll).calculate_lower_score()
+    results = Calculator(dice_roll).calculate_lower_score()
     assert results["four_of_a_kind"] == answer, "Four of a kind is incorrect"
 
 @pytest.mark.parametrize("dice_roll, answer", [
@@ -87,7 +87,7 @@ def test_four_of_a_kind(dice_roll, answer):
         ([2, 1, 2, 1, 2], 25)
     ])
 def test_full_house(dice_roll, answer):
-    results = Yahtzee_calc(dice_roll).calculate_lower_score()
+    results = Calculator(dice_roll).calculate_lower_score()
     assert results["full_house"] == answer, "Full House is incorrect"
 
 @pytest.mark.parametrize("dice_roll, answer", [
@@ -98,7 +98,7 @@ def test_full_house(dice_roll, answer):
         ([1, 3, 4, 5, 6], 30)
     ])
 def test_small_straight(dice_roll, answer):
-    results = Yahtzee_calc(dice_roll).calculate_lower_score()
+    results = Calculator(dice_roll).calculate_lower_score()
     assert results["sm_straight"] == answer, "Small Straight is incorrect"
 
 @pytest.mark.parametrize("dice_roll, answer", [
@@ -108,7 +108,7 @@ def test_small_straight(dice_roll, answer):
         ([5, 1, 2, 4, 3], 40)
     ])
 def test_large_straight(dice_roll, answer):
-    results = Yahtzee_calc(dice_roll).calculate_lower_score()
+    results = Calculator(dice_roll).calculate_lower_score()
     assert results["lg_straight"] == answer, f"Large Straight is incorrect: {answer}"
 
 @pytest.mark.parametrize("dice_roll, answer", [
@@ -116,10 +116,10 @@ def test_large_straight(dice_roll, answer):
         ([3, 3, 3, 3, 3], 50)
     ])
 def test_yahtzee(dice_roll, answer):
-    results = Yahtzee_calc(dice_roll).calculate_lower_score()
+    results = Calculator(dice_roll).calculate_lower_score()
     assert results["yahtzee"] == answer, "Yahtzee is incorrect"
 
 def test_chance():
     dice_roll = [5, 1, 5, 2, 3]
-    results = Yahtzee_calc(dice_roll).calculate_lower_score()
+    results = Calculator(dice_roll).calculate_lower_score()
     assert results["chance"] == 16, "Chance is incorrect"
