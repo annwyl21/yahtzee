@@ -5,7 +5,8 @@
 - pytest unit testing for the score calculator
 - python
 
-This repo is connected to a public project called Yahtzee where I have tracked the progress of this work using a github project board. The code in here is also tracked through github workflow, everytime a commit is made a set of unit tests are automatically run on the code via pytest to ensure the core code is always working.
+This repo is connected to a public project where I have tracked the progress of this work using a github project board. 
+The code also uses a github workflow, everytime a commit is made a set of unit tests are automatically run on the code via pytest to ensure the core code is always working.
 
 #Project Plan
 The plan here is to have Yahtzee in 2 forms:
