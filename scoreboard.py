@@ -14,9 +14,13 @@ class Scoreboard:
                              "sm_straight": None,
                              "lg_straight": None,
 			     			 "chance": None,
-                             "yahtzee": None
+                             "yahtzee": None,
+			     			 "yahtzee_bonus_rolls": []
                              }
-	
+		self._bonus_dict = {"upper_bonus": None,
+		     				"yahtzee_bonus": None
+		     }
+
 	def add_score(self, score_tuple):
 		try:
 			if self._score_dict[score_tuple[0]] == None:
@@ -29,6 +33,14 @@ class Scoreboard:
 	
 	def getscore_dict(self):
 		return self._score_dict
+	
+	def apply_bonus(self):
+		upper_score = sum([self._score_dict[key] for key in self._score_dict.keys() if key in ["aces", "twos", "threes", "fours", "fives", "sixes"]])
+		if upper_score >= 63:
+			self._bonus_dict["upper_bonus"] = 35
+		yahtzee_rolls = len(self._score_dict["yahtzee_bonus_rolls"])
+		self._bonus_dict["yahtzee_bonus"] = 100*(yahtzee_rolls)
+		return self._bonus_dict
 	
 	def __repr__(self):
 		return f"{self.player_name} Scoreboard {self._score_dict}"
