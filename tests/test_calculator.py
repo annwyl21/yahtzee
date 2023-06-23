@@ -120,12 +120,12 @@ def test_yahtzee(dice_roll, answer):
     assert results["yahtzee"] == answer, "Yahtzee is incorrect"
 
 @pytest.mark.parametrize("dice_roll, answer", [
-        ([1, 1, 1, 1, 1], 'X'),
-        ([3, 3, 3, 3, 3], 'X')
+        ([1, 1, 1, 1, 1], ['X']),
+        ([3, 3, 3, 3, 3], ['X'])
     ])
-def test_bonus(dice_roll, answer):
+def test_yahtzee_bonus_rolls(dice_roll, answer):
     results = Calculator(dice_roll).calculate_lower_score()
-    assert results["yahtzee_bonus"] == answer, "Yahtzee Bonus is incorrect"
+    assert results["yahtzee_bonus_rolls"] == answer, "Yahtzee Bonus is incorrect"
     #how to test for multiple yahtzee rolls?
 
 def test_chance():
