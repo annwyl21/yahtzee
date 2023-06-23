@@ -30,23 +30,19 @@ class Scoreboard:
 	def getscore_dict(self):
 		return self._score_dict
 	
-	# def __str__(self):
-	# 	return f"{self.player_name} Scoreboard {self._score_dict}"
-	
-	# def __repr__(self):
-	# 	return f"{self.player_name} Scoreboard {self._score_dict}"
+	def __repr__(self):
+		return f"{self.player_name} Scoreboard {self._score_dict}"
 
 if __name__ == '__main__':
     #create an instance of a player's scoreboard
-	player1 = Scoreboard("Player1")
+	miss_test = Scoreboard("Miss Test")
 
 	#add scores in tuples to the scoreboard for each turn of play
-	player1.add_score(('threes', 3))
-	player1.add_score(('fours', 4))
-	player1.add_score(('fives', 15))
-	player1.add_score(('three_of_a_kind', 15))
-	player1.add_score(('chance', 22))
+	miss_test.add_score(('threes', 3))
+	miss_test.add_score(('fours', 4))
+	miss_test.add_score(('fives', 15))
+	miss_test.add_score(('three_of_a_kind', 15))
+	miss_test.add_score(('chance', 22))
 
-	print(str(player1))
-	print(repr(player1))
+	print(repr(miss_test))
     
