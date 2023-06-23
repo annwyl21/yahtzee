@@ -1,23 +1,25 @@
+
 class Scoreboard:
-    def __init__(self, player_name):
-        self.player_name = ""
-        self._score_dict = {"aces": 0,
-                             "twos": 0,
-                             "threes": 0,
-                             "fours": 0,
-                             "fives": 0,
-                             "sixes": 0,
-                             "three_of_a_kind": 0,
-                             "four_of_a_kind": 0,
-                             "full_house": 0,
-                             "sm_straight": 0,
-                             "lg_straight": 0,
-                             "yahtzee": 0
+	def __init__(self, name):
+		self.player_name = name
+		self._score_dict = {"aces": None,
+                             "twos": None,
+                             "threes": None,
+                             "fours": None,
+                             "fives": None,
+                             "sixes": None,
+                             "three_of_a_kind": None,
+                             "four_of_a_kind": None,
+                             "full_house": None,
+                             "sm_straight": None,
+                             "lg_straight": None,
+			     			 "chance": None,
+                             "yahtzee": None
                              }
 	
 	def add_score(self, score_tuple):
 		try:
-			if score_dict[score_tuple[0]] == 0:
+			if self._score_dict[score_tuple[0]] == None:
 				self._score_dict[score_tuple[0]] = score_tuple[1]
 			else:
 				raise ValueError
@@ -25,14 +27,14 @@ class Scoreboard:
 			print("Score already entered for this category.")
 		return self._score_dict
 	
-	def get_scoreboard(self):
+	def getscore_dict(self):
 		return self._score_dict
 	
-	def __str__(self):
-		return f"{self.player_name} Scoreboard {self._score_dict}"
+	# def __str__(self):
+	# 	return f"{self.player_name} Scoreboard {self._score_dict}"
 	
-	def __repr__(self):
-		return f"{self.player_name} Scoreboard {self._score_dict}"
+	# def __repr__(self):
+	# 	return f"{self.player_name} Scoreboard {self._score_dict}"
 
 if __name__ == '__main__':
     #create an instance of a player's scoreboard

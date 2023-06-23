@@ -20,6 +20,7 @@ class Calculator:
                              "full_house": 0,
                              "sm_straight": 0,
                              "lg_straight": 0,
+                             "chance": 0,
                              "yahtzee": 0
                              }
 
