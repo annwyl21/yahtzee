@@ -27,10 +27,10 @@ class Play_game():
         
     def validate_dice_roll_input(self, dice_roll):
         try:
-        	dice_roll = [int(dice) for dice in dice_roll.split(',')]
-        except(ValueError):
+            dice_roll = [int(dice) for dice in dice_roll.split(',')]
+            return dice_roll
+        except:
             print("data entry error")
-        return dice_roll
     
     def play_game(self):
         print("Welcome to Yahtzee!")
