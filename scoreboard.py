@@ -45,6 +45,9 @@ class Scoreboard:
 		yahtzee_rolls = len(self._score_dict["yahtzee_bonus_rolls"])
 		self._bonus_dict["yahtzee_bonus"] = 100*(yahtzee_rolls)
 		return self._bonus_dict
+
+	def grand_total(self):
+		pass
 	
 	def __repr__(self):
 		return f"{self.player_name} Scoreboard {self._score_dict}"
