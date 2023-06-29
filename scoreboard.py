@@ -29,6 +29,8 @@ class Scoreboard:
 				raise ValueError
 		except ValueError:
 			print("Score already entered for this category.")
+		if score_tuple[0] == "yahtzee":
+			self._score_dict["yahtzee_bonus_rolls"].append('X')
 		return self._score_dict
 	
 	def getscore_dict(self):
