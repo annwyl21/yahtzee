@@ -3,19 +3,21 @@
 - Github project board
 - Github workflow
 - Github branches
-- pytest unit testing for the score calculator
-- python
+- Test Driven Development (TDD)
 
-The code uses a github workflow, everytime a pull request is made a set of unit tests are automatically run on the code via pytest to ensure the core code is always working.
-I used a github project board to support my test driven development and broke work into small and achievable pieces and I asked for support around TDD from a mentor for this project.
-One area of learning here was the difference between the design process and the building/ coding process and how the design process is more about behaviour driven development and the building and coding of the core score calculator was more about the test driven development. It took time for me to appreciate how BDD and TDD interact with my game design.
+The code uses a github workflow, everytime a pull request is made a series of unit tests are automatically run on the code via pytest to ensure the core code is always working. I used TDD to develop the code - *see image below*.
 
-#Project Plan
+I used a github project board and broke work into small and achievable pieces and I asked for support around TDD from a mentor for this project, as TDD was new to me and I was using [VS Studio website](https://code.visualstudio.com/docs/python/testing) to support my learning.
+
+One area of learning here was BDD vs TDD. The design process is more about behaviour driven development(BDD) and the building and coding of the core score calculator was more about the test driven development(TDD).
+
+### Project Plan
 The plan here is to have Yahtzee in 2 forms:
 - as a command line game, where the computer rolls the dice for a max of 6 players and track the score
 - as a scorer that can be used to score individual dice rolls
 
 ===
 # TDD
-This is a rewarding screenshot of the tests for my core calculator passing.
-![Image - Screenshot](./images/tdd_yahtzee.png)
+A rewardingly green screenshot to show how I developed using unittests in pytest.
+
+![Image - Screenshot](./images/tdd_yahtzee.jpg)
