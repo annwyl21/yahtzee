@@ -29,7 +29,7 @@ def test_apply_bonus():
     miss_test.add_score(('threes', 18))
     miss_test.add_score(('fours', 24))
     miss_test.add_score(('fives', 30))
-    miss_test.add_score(('sixes', 36))
+    miss_test.add_score(('sixes', 36)) # Total Score 126
     results = miss_test.apply_bonus()
     assert results == {"upper_bonus": 35, "yahtzee_bonus": 0}
 
@@ -39,6 +39,8 @@ def test_dont_apply_bonus():
     mstr_test.add_score(('twos', 2))
     mstr_test.add_score(('threes', 3))
     mstr_test.add_score(('fours', 4))
-    mstr_test.add_score(('fives', 5)) #Mrs Test has scored 15 points in the upper section
+    mstr_test.add_score(('fives', 5)) # Total Score 15
+    mstr_test.add_score(('sixes', 0)) 
     results = mstr_test.apply_bonus()
     assert results == {"upper_bonus": 0, "yahtzee_bonus": 0}
+# Test will fail if None is not replaced with an int, so test that in the game!!!
