@@ -19,5 +19,6 @@ The plan here is to have Yahtzee in 2 forms:
 ===
 # TDD
 A rewardingly green screenshot to show how I developed using unittests in pytest.
+This commit code marks a point where I clearly show TDD in action - *game_dev d2588ae*. There are examples throughout my work in this project but this one was an intentional capture to show my process.
 
 ![Image - Screenshot](./images/tdd_yahtzee.jpg)

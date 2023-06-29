@@ -47,7 +47,11 @@ class Scoreboard:
 		return self._bonus_dict
 
 	def grand_total(self):
-		pass
+		try:
+			grand_total = sum([self._score_dict[key] for key in self._score_dict.keys() if key in ["aces", "twos", "threes", "fours", "fives", "sixes", "three_of_a_kind", "four_of_a_kind", "full_house", "sm_straight", "lg_straight", "chance", "yahtzee"]]) + self._bonus_dict["upper_bonus"] + self._bonus_dict["yahtzee_bonus"]
+			return grand_total
+		except TypeError:
+			print("Not all scores have been entered yet, some still have 'None' values.")
 	
 	def __repr__(self):
 		return f"{self.player_name} Scoreboard {self._score_dict}"
