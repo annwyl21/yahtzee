@@ -25,8 +25,8 @@ class Play_game():
             player = Scoreboard(player)
         print(f"Players are: {self.players}")
         
-    def validate_dice_roll_input(dice_roll):
-        dice_roll = dice_roll.split()
+    def validate_dice_roll_input(self, dice_roll):
+        dice_roll = [int(dice) for dice in dice_roll.split()]
         return dice_roll
     
     def play_game(self):
