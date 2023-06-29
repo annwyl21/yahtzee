@@ -26,7 +26,10 @@ class Play_game():
         print(f"Players are: {self.players}")
         
     def validate_dice_roll_input(self, dice_roll):
-        dice_roll = [int(dice) for dice in dice_roll.split()]
+        try:
+        	dice_roll = [int(dice) for dice in dice_roll.split(',')]
+        except(ValueError):
+            print("data entry error")
         return dice_roll
     
     def play_game(self):
@@ -40,7 +43,7 @@ class Play_game():
                     dice_roll = [random.randrange(1, 7) for i in range(0, 5)]
                     self._dice_roll = dice_roll
                 else:
-                    dice_roll = input("Enter your dice roll, 5 4 3 2 1")
+                    dice_roll = input("Enter your dice roll, 5,4,3,2,1")
                     self._dice_roll = self.validate_dice_roll_input(dice_roll)
 				
 			
