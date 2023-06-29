@@ -38,23 +38,12 @@ class Scoreboard:
 		upper_score = sum([self._score_dict[key] for key in self._score_dict.keys() if key in ["aces", "twos", "threes", "fours", "fives", "sixes"]])
 		if upper_score >= 63:
 			self._bonus_dict["upper_bonus"] = 35
+		else:
+			self._bonus_dict["upper_bonus"] = 0
 		yahtzee_rolls = len(self._score_dict["yahtzee_bonus_rolls"])
 		self._bonus_dict["yahtzee_bonus"] = 100*(yahtzee_rolls)
 		return self._bonus_dict
 	
 	def __repr__(self):
 		return f"{self.player_name} Scoreboard {self._score_dict}"
-
-if __name__ == '__main__':
-    #create an instance of a player's scoreboard
-	miss_test = Scoreboard("Miss Test")
-
-	#add scores in tuples to the scoreboard for each turn of play
-	miss_test.add_score(('threes', 3))
-	miss_test.add_score(('fours', 4))
-	miss_test.add_score(('fives', 15))
-	miss_test.add_score(('three_of_a_kind', 15))
-	miss_test.add_score(('chance', 22))
-
-	print(repr(miss_test))
     
