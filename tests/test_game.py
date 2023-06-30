@@ -13,7 +13,12 @@ def test_user_dice_entry_error_acceptable():
     test_game = Play_game()
     compacted_entry = "65432"
     results = test_game.validate_dice_roll_input(compacted_entry)
-    assert results == None, "compacted roll failed"
+    assert results == [6, 5, 4, 3, 2], "compacted roll failed"
 
+def test_user_entry_acceptable_spaces():
+    test_game = Play_game()
+    spaced_entry = "5 4 6 1 3"
+    results = test_game.validate_dice_roll_input(spaced_entry)
+    assert results == [5, 4, 6, 1, 3], "spaced dice roll failed"
 
     

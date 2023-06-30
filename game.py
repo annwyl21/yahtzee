@@ -25,12 +25,21 @@ class Play_game():
             player = Scoreboard(player)
         print(f"Players are: {self.players}")
         
+    # maybe have another validation class that does this work    
     def validate_dice_roll_input(self, dice_roll):
         try:
             dice_roll = [int(dice) for dice in dice_roll.split(',')]
+            if len(dice_roll) == 1:
+                unpack_dice_roll = [int(num) for num in str(dice_roll[0])]
+                if len(unpack_dice_roll) == 5:
+                    dice_roll = unpack_dice_roll
             return dice_roll
         except:
-            print("data entry error")
+            dice_roll = [int(dice) for dice in dice_roll.split()]
+            if len(dice_roll) == 5:
+                return dice_roll
+            else:
+                print("ERROR: data entry error")
     
     def play_game(self):
         print("Welcome to Yahtzee!")
@@ -45,6 +54,8 @@ class Play_game():
                 else:
                     dice_roll = input("Enter your dice roll, 5,4,3,2,1")
                     self._dice_roll = self.validate_dice_roll_input(dice_roll)
+            scores = Calculator.calculator(dice_roll)
+            # returns a dictionary of score possibilities
 				
 			
     
