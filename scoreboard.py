@@ -55,4 +55,7 @@ class Scoreboard:
 	
 	def __repr__(self):
 		return f"{self.player_name} Scoreboard {self._score_dict}"
+	
+	def __str__(self) -> str:
+		return f"{self.player_name} Your current scoreboard {self._score_dict}"
     

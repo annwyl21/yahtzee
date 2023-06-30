@@ -41,6 +41,13 @@ class Play_game():
             else:
                 print("ERROR: data entry error")
     
+    def choose_score(player, results_dict):
+        if player.lower() != 'computer':
+            print(player.__str__()) # printing the scoreboard
+            # need to print the results dictionary
+            # and get the player to select a result that can be converted into a score tuple and sent in to the scoreboard
+        #then handle computer player
+
     def play_game(self):
         print("Welcome to Yahtzee!")
         self.define_players()
@@ -54,9 +61,10 @@ class Play_game():
                 else:
                     dice_roll = input("Enter your dice roll, 5,4,3,2,1")
                     self._dice_roll = self.validate_dice_roll_input(dice_roll)
-            scores = Calculator.calculator(dice_roll)
+            results_dict = Calculator.calculator(dice_roll)
             # returns a dictionary of score possibilities
-				
+            # send score choices to method to offer choices and return a tuple
+            score_tuple = self.choose_score(player, results_dict)
 			
     
 	# 	choose the result you want to keep from the calculator scores 
