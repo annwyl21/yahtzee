@@ -6,9 +6,18 @@ import random
 
 class Play_game():
     def __init__(self):
+        self.player_name = []
         self.players = []
-        _dice_roll = []
+        self._dice_roll = []
     
+    def create_scoreboard(self):
+        for num, player in enumerate(self.players):
+            if player == "computer":
+                Scoreboard("computer")
+            else:
+                player = "player" + str(num)
+                self.players[num] = Scoreboard(player)
+
     def define_players(self):
         print("Enter the names of the players. Enter 'Computer' to play against the computer.")
         player_name = ""
@@ -17,12 +26,11 @@ class Play_game():
             if player_name == "done":
                 break
             else:
-                self.players.append(player_name)
+                self.players.append(player_name.lower())
             if len(self.players) == 6:
                 print("Maximum number of players is 6.")
                 break
-        for player in self.players:
-            player = Scoreboard(player)
+        self.create_scoreboard()
         print(f"Players are: {self.players}")
         
     # maybe have another validation class that does this work    
@@ -41,12 +49,31 @@ class Play_game():
             else:
                 print("ERROR: data entry error")
     
-    def choose_score(player, results_dict):
-        if player.lower() != 'computer':
+    def choose_score(self, player, results_dict): # make available scores obvious
+        if player != 'computer':
             print(player.__str__()) # printing the scoreboard
-            # need to print the results dictionary
-            # and get the player to select a result that can be converted into a score tuple and sent in to the scoreboard
-        #then handle computer player
+            print(player, "your dice roll is", self._dice_roll)
+            print("Your score options are:")
+            for num, key, value in enumerate(results_dict.items()):
+                print(num, key, value) #formatted string
+            score_choice = input("Enter the number of the score you want to keep:")
+            score_choice = int(score_choice)
+            score_tuple = list(results_dict.items())[score_choice]
+            print("You chose", score_tuple)
+            return score_tuple
+        else: # computer player always chooses the lowest score != 0 unless the only space in the score dictionary is a score that has a zero then it selectes the first available score
+            computer_scoreboard = computer.getscore_dict()
+            zero_removed = {k: v for k, v in results_dict.items() if v != 0}
+            score_tuple = min(zero_removed.items(), key=lambda x: x[1])
+            while computer_scoreboard[score_tuple[0]] != None:
+                zero_removed.pop(score_tuple[0])
+                score_tuple = min(zero_removed.items(), key=lambda x: x[1])
+                if len(zero_removed) == 0:
+                    score_tuple = min(results_dict.items(), key=lambda x: x[1])
+                    while player.scoreboard[score_tuple[0]] != None:
+                        results_dict.pop(score_tuple[0])
+                        score_tuple = min(results_dict.items(), key=lambda x: x[1])
+            return score_tuple
 
     def play_game(self):
         print("Welcome to Yahtzee!")
@@ -55,7 +82,7 @@ class Play_game():
         
         for turn in range(1, 13):
             for player in self.players:
-                if player.lower() == 'computer':
+                if player == 'computer':
                     dice_roll = [random.randrange(1, 7) for i in range(0, 5)]
                     self._dice_roll = dice_roll
                 else:
@@ -66,6 +93,8 @@ class Play_game():
             # send score choices to method to offer choices and return a tuple
             score_tuple = self.choose_score(player, results_dict)
 			
+    # it got confusing when trying to create scoreboard instances to players and players started getting renamed - I need to think on this problem
+    # maybe just have player 1 and the players define the number of players and then always have a computer player. It is 6pm I need to stop for the day.
     
 	# 	choose the result you want to keep from the calculator scores 
  
