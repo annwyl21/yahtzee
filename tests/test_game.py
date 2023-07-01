@@ -24,7 +24,8 @@ def test_user_entry_acceptable_spaces():
 
 def test_choose_score_computer():
     test_game = Play_game()
-    computer = Scoreboard("computer")
+    test_game.players = {'player1': 'computer'}
+    test_game.scoreboard_instances = {'player1': Scoreboard("computer")}
     results_dict = {'aces': 1, 'twos': 2, 'threes': 0, 'fours': 4, 'fives': 0, 'sixes': 6, 'three_of_a_kind': 0, 'four_of_a_kind': 0, 'full_house': 0, 'sm_straight': 0, 'lg_straight': 0, 'chance': 13, 'yahtzee': 0}
     results = test_game.choose_score('computer', results_dict)
     assert results == (('aces', 1)), "computer did not choose the lowest score"

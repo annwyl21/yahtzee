@@ -54,8 +54,8 @@ class Scoreboard:
 			print("Not all scores have been entered yet, some still have 'None' values.")
 	
 	def __repr__(self):
-		return f"{self.player_name} Scoreboard {self._score_dict}"
+		return f"Scoreboard {self._score_dict}"
 	
 	def __str__(self) -> str:
-		return f"{self.player_name} Your current scoreboard {self._score_dict}"
+		return f"Your current scoreboard {self._score_dict}"
     
