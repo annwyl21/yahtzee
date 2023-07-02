@@ -47,6 +47,32 @@ class Play_game():
                     print(f'Player chose {score_tuple}')
                     return score_tuple
 
+    def scoring(self):
+        # display scoreboard
+        player_scoreboard = self.player.getscore_dict()
+        computer_scoreboard = self.computer.getscore_dict()
+
+        print('Scores so far: Computer vs Player...')
+        for key in player_scoreboard:
+            print(f"{key:<10s}  {computer_scoreboard[key]}  {key:<10s}  {player_scoreboard[key]}")
+
+        # display bonuses
+        player_bonus = self.player.apply_bonus()
+        print(f'Player bonus scores:\n {player_bonus}')
+        computer_bonus = self.computer.apply_bonus()
+        print(f'Computer bonus scores:\n {computer_bonus}')
+
+        # declare winner and display grand total
+        computer_end_score = self.computer.grand_total()
+        player_end_score = self.player.grand_total()
+        if computer_end_score == player_end_score:
+            print(f'DRAW {computer_end_score}:{player_end_score}')
+        elif computer_end_score > player_end_score:
+            print(f'Computer won {computer_end_score}:{player_end_score}')
+        else:
+            print(f'Congratulations YOU WON! {computer_end_score}:{player_end_score}')
+
+
     def play_game(self):
         print("Welcome to Yahtzee!")
         print("Let's play!")
@@ -70,16 +96,8 @@ class Play_game():
                     self.player.add_score(score_tuple)
 
         # Turn-taking over - grand total scores
-        self.computer.apply_bonus()
-        self.player.apply_bonus()
+        self.scoring
 
-        self.computer.grand_total()
-        self.player.grand_total()
-
-        print(self.computer.getscore_dict())
-        print(self.player.getscore_dict())
-    
-        # determine winner
 
 if __name__ == "__main__":
 	game = Play_game()
