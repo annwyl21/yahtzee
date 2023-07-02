@@ -24,24 +24,27 @@ class Play_game():
     
     def choose_score(self, game_player, results_dict):
         if game_player == 'computer':
-            print(f'Computer results: {results_dict}')
-            print(f'Computer\'s current scoreboard: {self.computer.getscore_dict()}')
+            scoreboard = self.computer.getscore_dict()
+            print('Results of dice roll for computer')
+            for num, key in enumerate(results_dict.keys(), 1):
+                print(f"{num:2d} Result:{key:<10s} {results_dict[key]}")
             # 1st available option on scoreboard - computer is not playing to win
-            for key, score in self.computer.getscore_dict().items():
+            for key, score in scoreboard.items():
                 if score == None:
                     score_tuple = key, results_dict[key]
-                    print(f'Computer choose {score_tuple}')
+                    print(f'Computer chose {score_tuple}')
                     return score_tuple
         else:
-            print(f'Player\'s current scoreboard: {self.player.getscore_dict()}')
-            print(f'Player\'s results: {results_dict}')
+            scoreboard = self.player.getscore_dict()
+            print('Results of dice roll for player')
+            for num, key in enumerate(results_dict.keys(), 1):
+                print(f"{num:2d} Result:{key:<10s} {results_dict[key]}")
             # player selects their dice result to add to their scoreboard
-            for num, key in enumerate(results_dict):
-                print(num, key)
             selected_result = input('Choose the result you wish to add to your scoreboard, type a number:\n')
-            for num, key in enumerate(results_dict):
-                if selected_result == key:
+            for num, key in enumerate(results_dict.keys(), 1):
+                if num == int(selected_result):
                     score_tuple = key, results_dict[key]
+                    print(f'Player chose {score_tuple}')
                     return score_tuple
 
     def play_game(self):
