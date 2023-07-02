@@ -3,6 +3,7 @@
 from scoreboard import Scoreboard
 from calculator import Calculator
 import random
+import sys
 
 class Play_game():
     def __init__(self):
@@ -71,13 +72,14 @@ class Play_game():
             print(f'Computer won {computer_end_score}:{player_end_score}')
         else:
             print(f'Congratulations YOU WON! {computer_end_score}:{player_end_score}')
+        return player_end_score
 
 
     def play_game(self):
         print("Welcome to Yahtzee!")
         print("Let's play!")
         
-        for turn in range(1, 13):
+        for turn in range(1, 14):
             for game_player in self.players:
                 if game_player == 'computer':
                     self._dice_roll = [random.randrange(1, 7) for i in range(0, 5)]
@@ -98,6 +100,8 @@ class Play_game():
         # Turn-taking over - grand total scores
         self.scoring
 
+        print("Goodbye\n", "="*50)
+        sys.exit()
 
 if __name__ == "__main__":
 	game = Play_game()
