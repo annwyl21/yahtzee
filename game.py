@@ -53,9 +53,9 @@ class Play_game():
         player_scoreboard = self.player.getscore_dict()
         computer_scoreboard = self.computer.getscore_dict()
 
-        print('Scores so far: Computer vs Player...')
+        print('Scores so far:\nComputer vs Player...')
         for key in player_scoreboard:
-            print(f"{key:<10s}  {computer_scoreboard[key]}  {key:<10s}  {player_scoreboard[key]}")
+            print(f"{key:<20s}  {computer_scoreboard[key]}  {key:<20s}  {player_scoreboard[key]}")
 
         # display bonuses
         player_bonus = self.player.apply_bonus()
@@ -98,9 +98,9 @@ class Play_game():
                     self.player.add_score(score_tuple)
 
         # Turn-taking over - grand total scores
-        self.scoring
+        self.scoring()
 
-        print("Goodbye\n", "="*50)
+        print('Goodbye\n')
         sys.exit()
 
 if __name__ == "__main__":
