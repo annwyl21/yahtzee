@@ -3,7 +3,7 @@ import pexpect
 
 # pytest test_whole_game.py
 # Integration testing - testing multiple components of an application together to ensure they work correctly as a group
-# NEEDS TO BE RUN USING THE UBUNTU TERMINAL BECAUSE SPAWN DOESN'T WORK WITH WINDOWS
+# NEEDS TO BE RUN USING THE UBUNTU TERMINAL BECAUSE SPAWN PREFERS UNIX-LIKE ENVIRONMENTS
 
 def test_program():
     child = pexpect.spawn('python game.py')
@@ -29,3 +29,4 @@ def test_grand_score():
         child.sendline(str(num))
     
     child.expect('.*34')
+    
