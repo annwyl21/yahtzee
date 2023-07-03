@@ -2,7 +2,8 @@ import pytest
 import pexpect
 from pexpect import spawn
 
-# pytest test_program.py
+# pytest test_whole_game.py
+# Integration testing - testing multiple components of an application together to ensure they work correctly as a group
 
 def test_program():
     child = pexpect.spawn('python game.py')
