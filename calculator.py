@@ -112,8 +112,7 @@ if __name__ == "__main__":
     # create a random dice roll
     computer_dice_roll = [random.randrange(1, 7) for i in range(0, 5)]
     # create a single instance of a turn of play using the dice roll and call it the computers turn
-    my_dice_roll = [1, 1, 1, 1, 1]
-    computer = Calculator(my_dice_roll)
+    computer = Calculator(computer_dice_roll)
 
     #print ("test", computer.calculator())
     print("overall result", computer.calculator())

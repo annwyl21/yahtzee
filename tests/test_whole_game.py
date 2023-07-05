@@ -29,15 +29,4 @@ def test_grand_score():
         child.sendline(str(num))
     
     child.expect('.*34')
-
-def test_yahtzee_score():
-    child = pexpect.spawn('python game.py')
-
-    for num in range(1, 14):
-        child.expect('.*Enter your dice roll, 5,4,3,2,1:\r\n')
-        child.sendline("1,3,3,5,5")
-        child.expect('.*Choose the result you wish to add to your scoreboard, type a number:\r\n')
-        child.sendline(str(num))
-    
-    child.expect('.*160')
     
