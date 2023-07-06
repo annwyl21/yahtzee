@@ -24,7 +24,7 @@ def test_user_entry_acceptable_spaces():
 
 def test_injection():
     test_game = Play_game()
-    injection = 'break'
+    injection = '"break #' # trying to break my code by ending the string, using a break command and then turning anything that follows into a comment (to remove a try and except)
     results = test_game.validate_dice_roll_input(injection)
     assert results == None, "failed to prevent injection"
 
