@@ -22,6 +22,12 @@ def test_user_entry_acceptable_spaces():
     results = test_game.validate_dice_roll_input(spaced_entry)
     assert results == None, "spaced dice roll failed"
 
+def test_injection():
+    test_game = Play_game()
+    injection = 'break'
+    results = test_game.validate_dice_roll_input(injection)
+    assert results == None, "failed to prevent injection"
+
 def test_choose_score_computer():
     test_game = Play_game()
     results_dict = {'aces': 1, 'twos': 2, 'threes': 0, 'fours': 4, 'fives': 0, 'sixes': 6, 'three_of_a_kind': 0, 'four_of_a_kind': 0, 'full_house': 0, 'sm_straight': 0, 'lg_straight': 0, 'chance': 13, 'yahtzee': 0}
