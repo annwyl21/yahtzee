@@ -4,7 +4,7 @@
 - Using the debugger to problem solve
 - Github project, workflow & branches
 
-### The Scorer:
+### A Command Line Scoring Program:
 - The **calculator class** can be used as a scorer that can be used to score individual dice rolls
 - The **scoreboard class** contains methods that can be called to produce a scoreboard during the game and an overall score at the end of a game.
 
