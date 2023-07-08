@@ -1,24 +1,23 @@
 # Yahtzee Scorer
 
-- Github project board
-- Github workflow
-- Github branches
 - Test Driven Development (TDD) - Pytest and Pexpect
+- Using the debugger to problem solve
+- Github project, workflow & branches
 
-The code uses a github workflow, everytime a pull request is made a series of unit tests are automatically run on the code via pytest to ensure the core code is always working. I used TDD to develop the code - *see image below*, using Pytest for unit testing and Pexpect for integration testing.
+### The Scorer:
+- The **calculator class** can be used as a scorer that can be used to score individual dice rolls
+- The **scoreboard class** contains methods that can be called to produce a scoreboard during the game and an overall score at the end of a game.
 
-I used a github project board and broke work into small and achievable pieces and I asked for support around TDD from a mentor for this project, as TDD was new to me and I was using [VS Studio website](https://code.visualstudio.com/docs/python/testing) to support my learning.
+## Development Overview
 
-One area of learning here was BDD vs TDD. The design process is more about behaviour driven development(BDD) and the building and coding of the core score calculator was more about the test driven development(TDD).
+This repository represents use of **GitHub workflows** to ensure the continuous quality of our code. Every time a pull request is initiated, a batch of unit tests is executed automatically on the proposed code. This is achieved using `pytest`, a robust Python testing tool, which ensures that the core functionality of the code remains intact at all times. 
 
-### Yahtzee Scorer
-My Yahtzee scorer is in 2 forms:
-- taking command line input during a game
-- used as a scorer that can be used to score individual dice rolls
+My development approach leaned heavily on **Test-Driven Development (TDD)**. This methodology emphasizes writing tests before the actual code. As illustrated in the image below, my TDD workflow involved using `pytest` for unit testing and `Pexpect` for integration testing. This project has also really given me an opportunity to use the **debugger** to debug tests and code. Use of the debugger helped me to quickly and easily spot a late night error in my own tests.
+
+To manage my tasks effectively, I utilized a **GitHub project board**, splitting my objectives into manageable, achievable segments. This practice was instrumental in keeping the project on track and my goals clear.
 
 ===
 # TDD
 A rewardingly green screenshot to show how I developed using unittests in pytest.
-These commit codes mark a point where I clearly show TDD in action - *game_dev d2588ae* and *game_dev 8955bbb*. There are examples throughout my work in this project but this one was an intentional capture to show my process of using TDD on a branch called *game_dev*.
 
 ![Image - Screenshot](./images/tdd_yahtzee.jpg)
