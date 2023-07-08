@@ -114,8 +114,9 @@ if __name__ == "__main__":
     # create a single instance of a turn of play using the dice roll and call it the computers turn
     computer = Calculator(computer_dice_roll)
 
+    # use score calculator to calculate result of a single turn
     my_dice_roll = [6,6,6,6,6]
-    test = Calculator(my_dice_roll)
+    test_player = Calculator(my_dice_roll)
 
     #print ("test", computer.calculator())
-    print("overall result", test.calculator())
+    print("overall result for dice roll", my_dice_roll, test_player.calculator())
