@@ -3,10 +3,28 @@
 - Test Driven Development (TDD) - Pytest and Pexpect
 - Using the debugger to problem solve
 - Github project, workflow & branches
+```bash
+	# to see the tests working
+	pip install -r requirements.txt
+	# to run the command line program
+	python game.py
+```
 
 ### A Command Line Scoring Program:
 - The **calculator class** can be used as a scorer that can be used to score individual dice rolls
+```bash 
+    # use score calculator to calculate result of a single turn
+    my_dice_roll = [6,6,6,6,6]
+    test_player = Calculator(my_dice_roll)
+```
 - The **scoreboard class** contains methods that can be called to produce a scoreboard during the game and an overall score at the end of a game.
+```bash
+	# to run an example game and see the scoreboard working against a test computer player
+	game = Play_game()
+	game.play_game()
+	# user input required for dice roll on each turn
+	# alternatively see the files test_whole_game.py & test_scoreboard.py
+```
 
 ## Development Overview
 
