@@ -45,7 +45,17 @@ class Scoreboard:
 		yahtzee_rolls = len(self._score_dict["yahtzee_bonus_rolls"])
 		self._bonus_dict["yahtzee_bonus"] = 100*(yahtzee_rolls)
 		return self._bonus_dict
+
+	def grand_total(self):
+		try:
+			grand_total = sum([self._score_dict[key] for key in self._score_dict.keys() if key in ["aces", "twos", "threes", "fours", "fives", "sixes", "three_of_a_kind", "four_of_a_kind", "full_house", "sm_straight", "lg_straight", "chance", "yahtzee"]]) + self._bonus_dict["upper_bonus"] + self._bonus_dict["yahtzee_bonus"]
+			return grand_total
+		except TypeError:
+			print("Not all scores have been entered yet, some still have 'None' values.")
 	
 	def __repr__(self):
-		return f"{self.player_name} Scoreboard {self._score_dict}"
+		return f"Scoreboard {self._score_dict}"
+	
+	def __str__(self) -> str:
+		return f"Your current scoreboard {self._score_dict}"
     

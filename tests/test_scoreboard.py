@@ -67,3 +67,23 @@ def test_apply_yahtzee_bonus():
     results = a_test.apply_bonus()
     assert results == {"upper_bonus": 0, "yahtzee_bonus": 100}
 # Adding results of an assumed game because the method apply_bonus will only be called at the end of a game when all the 'None' values have been replaced with ints
+
+def test_grand_total():
+    g_test = Scoreboard("Granny Test")
+    g_test.add_score(('yahtzee', 50))
+    g_test.add_score(('aces', 1))
+    g_test.add_score(('twos', 2))
+    g_test.add_score(('threes', 3))
+    g_test.add_score(('fours', 4))
+    g_test.add_score(('fives', 5))
+    g_test.add_score(('sixes', 6))
+    g_test.add_score(('three_of_a_kind', 3))
+    g_test.add_score(('four_of_a_kind', 4))
+    g_test.add_score(('full_house', 7))
+    g_test.add_score(('sm_straight', 15))
+    g_test.add_score(('lg_straight', 20))
+    g_test.add_score(('chance', 10))
+    g_test.apply_bonus()
+    results = g_test.grand_total()
+    assert results == 230
+# Granny takes 13 turns, adds her scores, at the end of the game the bonus is applied and the grand total is calculated.
