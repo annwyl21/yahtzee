@@ -9,6 +9,7 @@ class Play_game():
     def __init__(self):
         self.players = {'computer', 'player'}
         self._dice_roll = []
+        self._yahtzee = False
         self.computer = Scoreboard('computer')
         self.player = Scoreboard('player')
         

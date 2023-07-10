@@ -22,6 +22,7 @@ class Calculator:
                              "lg_straight": 0,
                              "chance": 0,
                              "yahtzee": 0,
+                             "yahtzee_bonus": False
                              }
 
     def get_dice_roll(self):
@@ -66,6 +67,7 @@ class Calculator:
         # score yahtzee, full house, four of a kind, large straight
         if dice_set_length == 1:
             lower_score_dict["yahtzee"] = 50
+            self._score_dict["yahtzee_bonus"] = True
         elif dice_set_length == 2:
             if 3 in self.dice_count() and 2 in self.dice_count():
                 lower_score_dict["full_house"] = 25
