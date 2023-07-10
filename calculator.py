@@ -117,7 +117,7 @@ if __name__ == "__main__":
     computer = Calculator(computer_dice_roll)
 
     # use score calculator to calculate result of a single turn
-    my_dice_roll = [6,6,6,6,6]
+    my_dice_roll = [1,1,1,1,1]
     test_player = Calculator(my_dice_roll)
 
     #print ("test", computer.calculator())

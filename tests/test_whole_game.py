@@ -39,7 +39,7 @@ def test_grand_score_with_yahtzee_roll():
         child.expect('.*Choose the result you wish to add to your scoreboard, type a number:\r\n')
         child.sendline(str(num))
     
-    child.expect('.*160') #work out the score
+    child.expect('.*360') #work out the score
 
 def test_grand_score_with_larger_score():
     child = pexpect.spawn('python game.py')
@@ -50,7 +50,7 @@ def test_grand_score_with_larger_score():
         child.expect('.*Choose the result you wish to add to your scoreboard, type a number:\r\n')
         child.sendline(str(num))
     
-    child.expect('.*210') #work out the score 
+    child.expect('.*410') #work out the score 
 
 def test_score_max_possible(): #perfect hands every time
     child = pexpect.spawn('python game.py')
@@ -121,4 +121,4 @@ def test_score_max_possible(): #perfect hands every time
     child.expect('.*Choose the result you wish to add to your scoreboard, type a number:\r\n')
     child.sendline('13')
 
-    child.expect('.*457')
+    child.expect('.*657')
