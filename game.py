@@ -47,7 +47,8 @@ class Play_game():
                 if num == int(selected_result):
                     score_tuple = key, results_dict[key]
                     print(f'Player chose {score_tuple}')
-                    return score_tuple
+                    results_tuple = score_tuple, results_dict["yahtzee_bonus"]
+                    return results_tuple
 
     def scoring(self):
         # display scoreboard

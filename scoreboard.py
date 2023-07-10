@@ -17,11 +17,12 @@ class Scoreboard:
                              "yahtzee": None,
 			     			 "yahtzee_bonus_rolls": []
                              }
-		self._bonus_dict = {"upper_bonus": None,
-		     				"yahtzee_bonus": None
+		self._bonus_dict = {"upper_bonus": 0,
+		     				"yahtzee_bonus": 0
 		     }
 
-	def add_score(self, score_tuple):
+	def add_score(self, results_tuple):
+		score_tuple = results_tuple[0]
 		try:
 			if self._score_dict[score_tuple[0]] == None:
 				self._score_dict[score_tuple[0]] = score_tuple[1]
@@ -29,7 +30,7 @@ class Scoreboard:
 				raise ValueError
 		except ValueError:
 			print("Score already entered for this category.")
-		if score_tuple[0] == "yahtzee":
+		if results_tuple[1] == True:
 			self._score_dict["yahtzee_bonus_rolls"].append('X')
 		return self._score_dict
 	
@@ -42,7 +43,11 @@ class Scoreboard:
 			self._bonus_dict["upper_bonus"] = 35
 		else:
 			self._bonus_dict["upper_bonus"] = 0
-		yahtzee_rolls = len(self._score_dict["yahtzee_bonus_rolls"])
+		yahtzee_rolls = 0
+		if len(self._score_dict["yahtzee_bonus_rolls"]) > num_yahtzee_rolls:
+			num_yahtzee_rolls = len(self._score_dict["yahtzee_bonus_rolls"])
+			if num_yahtzee_rolls > 3:
+				yahtzee_rolls = 3
 		self._bonus_dict["yahtzee_bonus"] = 100*(yahtzee_rolls)
 		return self._bonus_dict
 
