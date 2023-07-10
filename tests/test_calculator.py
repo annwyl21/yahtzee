@@ -123,3 +123,9 @@ def test_chance():
     dice_roll = [5, 1, 5, 2, 3]
     results = Calculator(dice_roll).calculate_lower_score()
     assert results["chance"] == 16, "Chance is incorrect"
+
+def test_yahtzee_bonus():
+    dice_roll = [1, 1, 1, 1, 1]
+    results = Calculator(dice_roll).calculate_lower_score()
+    assert results["yahtzee_bonus"] == True, "yahtzee bonus failed to apply"
+    
