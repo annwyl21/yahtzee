@@ -43,11 +43,14 @@ class Scoreboard:
 			self._bonus_dict["upper_bonus"] = 35
 		else:
 			self._bonus_dict["upper_bonus"] = 0
-		yahtzee_rolls = 0
-		if len(self._score_dict["yahtzee_bonus_rolls"]) > num_yahtzee_rolls:
+		if len(self._score_dict["yahtzee_bonus_rolls"]):
 			num_yahtzee_rolls = len(self._score_dict["yahtzee_bonus_rolls"])
 			if num_yahtzee_rolls > 3:
 				yahtzee_rolls = 3
+			else:
+				yahtzee_rolls = num_yahtzee_rolls
+		else:
+			yahtzee_rolls = 0
 		self._bonus_dict["yahtzee_bonus"] = 100*(yahtzee_rolls)
 		return self._bonus_dict
 
