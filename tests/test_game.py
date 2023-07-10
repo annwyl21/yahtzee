@@ -30,15 +30,15 @@ def test_injection():
 
 def test_choose_score_computer():
     test_game = Play_game()
-    results_dict = {'aces': 1, 'twos': 2, 'threes': 0, 'fours': 4, 'fives': 0, 'sixes': 6, 'three_of_a_kind': 0, 'four_of_a_kind': 0, 'full_house': 0, 'sm_straight': 0, 'lg_straight': 0, 'chance': 13, 'yahtzee': 0}
+    results_dict = {'aces': 1, 'twos': 2, 'threes': 0, 'fours': 8, 'fives': 0, 'sixes': 6, 'three_of_a_kind': 0, 'four_of_a_kind': 0, 'full_house': 0, 'sm_straight': 0, 'lg_straight': 0, 'chance': 13, 'yahtzee': 0, 'yahtzee_bonus': False}
     results = test_game.choose_score('computer', results_dict)
-    assert results == (('aces', 1)), "computer did not choose the first available entry on the blank scoreboard"
+    assert results == (('aces', 1), False), "computer did not choose the first available entry on the blank scoreboard"
 
 def test_choose_score_from_multiple_scores():
     test_game = Play_game()
-    results_dict = {'aces': 2, 'twos': 2, 'threes': 0, 'fours': 4, 'fives': 0, 'sixes': 6, 'three_of_a_kind': 0, 'four_of_a_kind': 0, 'full_house': 0, 'sm_straight': 0, 'lg_straight': 0, 'chance': 13, 'yahtzee': 0}
+    results_dict = {'aces': 2, 'twos': 2, 'threes': 0, 'fours': 4, 'fives': 0, 'sixes': 6, 'three_of_a_kind': 0, 'four_of_a_kind': 0, 'full_house': 0, 'sm_straight': 0, 'lg_straight': 0, 'chance': 13, 'yahtzee': 0, 'yahtzee_bonus': False}
     results = test_game.choose_score('computer', results_dict)
-    assert results == (('aces', 2)), "computer did not choose the lowest score"
+    assert results == (('aces', 2), False), "computer did not choose the lowest score"
 
 
 
