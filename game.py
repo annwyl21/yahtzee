@@ -35,14 +35,18 @@ class Play_game():
                 if score == None:
                     score_tuple = key, results_dict[key]
                     print(f'Computer chose {score_tuple}')
-                    return score_tuple
+                    results_tuple = score_tuple, results_dict["yahtzee_bonus"]
+                    return results_tuple
         else:
             scoreboard = self.player.getscore_dict()
+            print("Current Scoreboard Status")
+            for key, score in scoreboard.items():
+                print(f"{key:<10s} {score}")
             print('Results of dice roll for player')
             for num, key in enumerate(results_dict.keys(), 1):
                 print(f"{num:2d} Result:{key:<10s} {results_dict[key]}")
             # player selects their dice result to add to their scoreboard
-            selected_result = input('Choose the result you wish to add to your scoreboard, type a number:\n')
+            selected_result = input('Type a number to choose the result you wish to add to your scoreboard:\n')
             for num, key in enumerate(results_dict.keys(), 1):
                 if num == int(selected_result):
                     score_tuple = key, results_dict[key]
