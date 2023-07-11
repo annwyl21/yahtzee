@@ -4,6 +4,7 @@ from scoreboard import Scoreboard
 from calculator import Calculator
 import random
 import sys
+import re
 
 class Play_game():
     def __init__(self):
@@ -94,7 +95,10 @@ class Play_game():
                 if game_player == 'computer':
                     self._dice_roll = [random.randrange(1, 7) for i in range(0, 5)]
                 else:
-                    dice_roll_input = input("Enter your dice roll, 5,4,3,2,1:\n")
+                    dice_roll_input = ""
+                    # check dice roll is valid using regex 
+                    while not re.match(r'^([1-6],){4}[1-6]$', dice_roll_input):
+                        dice_roll_input = input("Enter your dice roll, 5,4,3,2,1:\n")
                     self._dice_roll = self.validate_dice_roll_input(dice_roll_input)
             
                 results_dict = Calculator(self._dice_roll).calculator()
