@@ -4,6 +4,7 @@ import pexpect
 # pytest test_whole_game.py
 # Integration testing - testing multiple components of an application together to ensure they work correctly as a group
 # NEEDS TO BE RUN USING THE UBUNTU TERMINAL BECAUSE SPAWN PREFERS UNIX-LIKE ENVIRONMENTS
+# timeout makes the test fail faster - https://pexpect.readthedocs.io/en/stable/overview.html
 
 def test_program():
     child = pexpect.spawn('python game.py')
@@ -11,7 +12,7 @@ def test_program():
     for num in range(1, 14):
         child.expect('.*Enter your dice roll, 5,4,3,2,1:\r\n')
         child.sendline("1,1,1,1,1")
-        child.expect('.*Type a number to choose the result you wish to add to your scoreboard:\r\n')
+        child.expect('.*Type a number to choose the result you wish to add to your scoreboard:\r\n', timeout=0.5)
         child.sendline(str(num))
     
     child.expect('Goodbye\r\n')
@@ -23,7 +24,7 @@ def test_program_with_invalid_dice_roll():
     child = pexpect.spawn('python game.py')
     child.expect('.*Enter your dice roll, 5,4,3,2,1:\r\n')
     child.sendline("1,1,1,1,1,1")
-    child.expect('.*Enter your dice roll, 5,4,3,2,1:\r\n')
+    child.expect('.*Enter your dice roll, 5,4,3,2,1:\r\n', timeout=0.5)
 
 def test_grand_score():
     child = pexpect.spawn('python game.py')
@@ -31,7 +32,7 @@ def test_grand_score():
     for num in range(1, 14):
         child.expect('.*Enter your dice roll, 5,4,3,2,1:\r\n')
         child.sendline("1,3,3,5,5")
-        child.expect('.*Type a number to choose the result you wish to add to your scoreboard:\r\n')
+        child.expect('.*Type a number to choose the result you wish to add to your scoreboard:\r\n', timeout=0.5)
         child.sendline(str(num))
     
     child.expect('.*34')
@@ -42,7 +43,7 @@ def test_grand_score_with_yahtzee_roll():
     for num in range(1, 14):
         child.expect('.*Enter your dice roll, 5,4,3,2,1:\r\n')
         child.sendline("1,1,1,1,1")
-        child.expect('.*Type a number to choose the result you wish to add to your scoreboard:\r\n')
+        child.expect('.*Type a number to choose the result you wish to add to your scoreboard:\r\n', timeout=0.5)
         child.sendline(str(num))
     
     child.expect('.*360') #work out the score
