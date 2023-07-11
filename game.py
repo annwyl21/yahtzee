@@ -45,7 +45,10 @@ class Play_game():
             print('\nResults of dice roll for player and current status of your scoreboard\n')
             results = [key for key in results_dict if key != "yahtzee_bonus"]
             for num, key in enumerate(results, 1):
-                print(f"{num:2d} {key:<23s}Roll Result: {results_dict[key]:3d}, Your Scoreboard {scoreboard[key]}")
+                if scoreboard[key] == None:
+                    print(f"{num:2d} {key:<23s}Roll Result: {results_dict[key]:3d}, Your Scoreboard {scoreboard[key]}")
+                else:
+                    print(f"UNAVAILABLE {key:<23s}Rolled: {results_dict[key]:3d}, Scoreboard holding {scoreboard[key]}")
             # player selects their dice result to add to their scoreboard
             selected_result = input('Type a number to choose the result you wish to add to your scoreboard:\n')
             for num, key in enumerate(results_dict.keys(), 1):
