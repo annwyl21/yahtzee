@@ -27,9 +27,9 @@ class Play_game():
     def choose_score(self, game_player, results_dict):
         if game_player == 'computer':
             scoreboard = self.computer.getscore_dict()
-            print('Results of dice roll for computer')
+            print('\nResults of dice roll for computer\n')
             for num, key in enumerate(results_dict.keys(), 1):
-                print(f"{num:2d} Result:{key:<10s} {results_dict[key]}")
+                print(f"{num:2d} Result:{key:<23s} {results_dict[key]}")
             # 1st available option on scoreboard - computer is not playing to win
             for key, score in scoreboard.items():
                 if score == None:
@@ -39,12 +39,13 @@ class Play_game():
                     return results_tuple
         else:
             scoreboard = self.player.getscore_dict()
-            print("Current Scoreboard Status")
-            for key, score in scoreboard.items():
-                print(f"{key:<10s} {score}")
-            print('Results of dice roll for player')
-            for num, key in enumerate(results_dict.keys(), 1):
-                print(f"{num:2d} Result:{key:<10s} {results_dict[key]}")
+            print("\nCurrent Scoreboard Status\n")
+            # for key, score in scoreboard.items():
+            #     print(f"{key:<10s} {score}")
+            print('\nResults of dice roll for player and current status of your scoreboard\n')
+            results = [key for key in results_dict if key != "yahtzee_bonus"]
+            for num, key in enumerate(results, 1):
+                print(f"{num:2d} {key:<23s}Roll Result: {results_dict[key]:3d}, Your Scoreboard {scoreboard[key]}")
             # player selects their dice result to add to their scoreboard
             selected_result = input('Type a number to choose the result you wish to add to your scoreboard:\n')
             for num, key in enumerate(results_dict.keys(), 1):
@@ -59,7 +60,7 @@ class Play_game():
         player_scoreboard = self.player.getscore_dict()
         computer_scoreboard = self.computer.getscore_dict()
 
-        print('Scores so far:\nComputer vs Player...')
+        print('\nScores so far:\nComputer vs Player...\n')
         for key in player_scoreboard:
             print(f"{key:<20s}  {computer_scoreboard[key]}  {key:<20s}  {player_scoreboard[key]}")
 
