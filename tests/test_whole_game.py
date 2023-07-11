@@ -19,6 +19,12 @@ def test_program():
     # assert child.isalive() == False
     # assert child.exitstatus == 0
 
+def test_program_with_invalid_dice_roll():
+    child = pexpect.spawn('python game.py')
+    child.expect('.*Enter your dice roll, 5,4,3,2,1:\r\n')
+    child.sendline("1,1,1,1,1,1")
+    child.expect('.*Enter your dice roll, 5,4,3,2,1:\r\n')
+
 def test_grand_score():
     child = pexpect.spawn('python game.py')
 
