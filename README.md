@@ -4,16 +4,15 @@
 - Using the debugger to problem solve
 - Github project, workflow & branches
 ```bash
-	# to see the tests working
+	# to run the command lines game and see the tests for my logic
 	pip install -r requirements.txt
-	# to run the command line program
 	python game.py
 ```
 
 ### A Command Line Scoring Program:
 - The **calculator class** can be used as a scorer that can be used to score individual dice rolls
 ```bash 
-    # use score calculator to calculate result of a single turn
+    # use score calculator to calculate result of a single turn, insert your dice roll into the list
     my_dice_roll = [6,6,6,6,6]
     test_player = Calculator(my_dice_roll)
 ```
