@@ -49,9 +49,9 @@ class Play_game():
                 if scoreboard[key] == None:
                     print(f"{num:2d} {key:<23s}Roll Result: {results_dict[key]:3d}, Your Scoreboard {scoreboard[key]}")
                 else:
-                    print(f"UNAVAILABLE {key:<23s}Rolled: {results_dict[key]:3d}, Scoreboard holding {scoreboard[key]}")
+                    print(f"XX {key:<23s}Rolled: {results_dict[key]:8d}, Scoreboard holding {scoreboard[key]}")
             # player selects their dice result to add to their scoreboard
-            selected_result = input('Type a number to choose the result you wish to add to your scoreboard:\n')
+            selected_result = input('\nScore to add:\n')
             for num, key in enumerate(results_dict.keys(), 1):
                 if num == int(selected_result):
                     score_tuple = key, results_dict[key]
@@ -87,8 +87,8 @@ class Play_game():
 
 
     def play_game(self):
-        print("Welcome to Yahtzee!")
-        print("Let's play!")
+        print("\nWelcome to Yahtzee!")
+        print("\nLet's play!")
         
         for turn in range(1, 14):
             for game_player in self.players:
