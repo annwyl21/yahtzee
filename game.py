@@ -28,14 +28,14 @@ class Play_game():
     def choose_score(self, game_player, results_dict):
         if game_player == 'computer':
             scoreboard = self.computer.getscore_dict()
-            print('\nResults of dice roll for computer\n')
+            print('\nCOMPUTER RESULTS:\n')
             for num, key in enumerate(results_dict.keys(), 1):
                 print(f"{num:2d} Result:{key:<23s} {results_dict[key]}")
             # 1st available option on scoreboard - computer is not playing to win
             for key, score in scoreboard.items():
                 if score == None:
                     score_tuple = key, results_dict[key]
-                    print(f'Computer chose {score_tuple}')
+                    print(f'\nComputer chose {score_tuple}')
                     results_tuple = score_tuple, results_dict["yahtzee_bonus"]
                     return results_tuple
         else:
@@ -43,7 +43,7 @@ class Play_game():
             print("\nCurrent Scoreboard Status\n")
             # for key, score in scoreboard.items():
             #     print(f"{key:<10s} {score}")
-            print('\nResults of dice roll for player and current status of your scoreboard\n')
+            print('\nPLAYER RESULTS:\n')
             results = [key for key in results_dict if key != "yahtzee_bonus"]
             for num, key in enumerate(results, 1):
                 if scoreboard[key] == None:
@@ -55,7 +55,7 @@ class Play_game():
             for num, key in enumerate(results_dict.keys(), 1):
                 if num == int(selected_result):
                     score_tuple = key, results_dict[key]
-                    print(f'Player chose {score_tuple}')
+                    print(f'\nPlayer chose {score_tuple}')
                     results_tuple = score_tuple, results_dict["yahtzee_bonus"]
                     return results_tuple
 
@@ -70,19 +70,19 @@ class Play_game():
 
         # display bonuses
         player_bonus = self.player.apply_bonus()
-        print(f'Player bonus scores:\n {player_bonus}')
+        print(f'\nPlayer bonus scores:\n {player_bonus}')
         computer_bonus = self.computer.apply_bonus()
-        print(f'Computer bonus scores:\n {computer_bonus}')
+        print(f'\nComputer bonus scores:\n {computer_bonus}')
 
         # declare winner and display grand total
         computer_end_score = self.computer.grand_total()
         player_end_score = self.player.grand_total()
         if computer_end_score == player_end_score:
-            print(f'DRAW {computer_end_score}:{player_end_score}')
+            print(f'\nDRAW {computer_end_score}:{player_end_score}')
         elif computer_end_score > player_end_score:
-            print(f'Computer won {computer_end_score}:{player_end_score}')
+            print(f'\nComputer won {computer_end_score}:{player_end_score}')
         else:
-            print(f'Congratulations YOU WON! {computer_end_score}:{player_end_score}')
+            print(f'\nCongratulations YOU WON! {computer_end_score}:{player_end_score}')
         return player_end_score
 
 
@@ -98,7 +98,7 @@ class Play_game():
                     dice_roll_input = ""
                     # check dice roll is valid using regex 
                     while not re.match(r'^([1-6],){4}[1-6]$', dice_roll_input):
-                        dice_roll_input = input("Enter your dice roll, 5,4,3,2,1:\n")
+                        dice_roll_input = input("\nEnter your dice roll, 5,4,3,2,1:\n")
                     self._dice_roll = self.validate_dice_roll_input(dice_roll_input)
             
                 results_dict = Calculator(self._dice_roll).calculator()
@@ -114,7 +114,7 @@ class Play_game():
         # Turn-taking over - grand total scores
         self.scoring()
 
-        print('Goodbye\n')
+        print('\nGoodbye\n')
         sys.exit()
 
 if __name__ == "__main__":
