@@ -8,7 +8,7 @@ The complex rules of Yahtzee along with the challenge of tracking the score thro
 1. The first step was to write a score calculator and create a game against a computer adversary, which I have now deployed to replit. 
 2. The next evolution for this game will be to replace the computer player with family players so that I can use my app to calculate and track scores during a family game.
 
-[Yahtzee Scorer](https://annwyl21.github.io/yahtzee_scorer/yahtzeedemo.html) deployed to replit.
+# [Yahtzee Scorer](https://annwyl21.github.io/yahtzee_scorer/yahtzeedemo.html) deployed to replit.
 
 ### A Command Line Scoring Program:
 - The **calculator class** can be used as a scorer that can be used to score individual dice rolls
