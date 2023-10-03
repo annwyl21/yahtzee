@@ -3,27 +3,17 @@
 - Test Driven Development (TDD) - Pytest and Pexpect
 - Using the debugger to problem solve
 - Github project, workflow & branches
-```bash
-	# to run the command lines game and see the tests for my logic
-	pip install -r requirements.txt
-	python game.py
-```
+
+The complex rules of Yahtzee along with the challenge of tracking the score through the game makes this an ideal challenge for a junior developer like me. 
+1. The first step was to write a score calculator and create a game against a computer adversary, which I have now deployed to replit. 
+2. The next evolution for this game will be to replace the computer player with family players so that I can use my app to calculate and track scores during a family game.
+
+[Yahtzee Scorer](https://annwyl21.github.io/yahtzee_scorer/yahtzeedemo.html) deployed to replit.
 
 ### A Command Line Scoring Program:
 - The **calculator class** can be used as a scorer that can be used to score individual dice rolls
-```bash 
-    # use score calculator to calculate result of a single turn, insert your dice roll into the list
-    my_dice_roll = [6,6,6,6,6]
-    test_player = Calculator(my_dice_roll)
-```
+
 - The **scoreboard class** contains methods that can be called to produce a scoreboard during the game and an overall score at the end of a game.
-```bash
-	# to run an example game and see the scoreboard working against a test computer player
-	game = Play_game()
-	game.play_game()
-	# user input required for dice roll on each turn
-	# alternatively see the files test_whole_game.py & test_scoreboard.py
-```
 
 ## Development Overview
 
@@ -35,6 +25,6 @@ To manage my tasks effectively, I utilized a **GitHub project board**, splitting
 
 ===
 # TDD
-A rewardingly green screenshot to show how I developed using unittests in pytest.
+A rewardingly green screenshot to show how I developed using unit tests in pytest.
 
 ![Image - Screenshot](./images/tdd_yahtzee.jpg)
