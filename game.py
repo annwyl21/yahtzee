@@ -28,7 +28,7 @@ class Play_game():
     def choose_score(self, game_player, results_dict):
         if game_player == 'computer':
             scoreboard = self.computer.getscore_dict()
-            print('\nCOMPUTER RESULTS:\n')
+            print('\n' + 50*'=' + '\nCOMPUTER RESULTS:\n')
             for num, key in enumerate(results_dict.keys(), 1):
                 print(f"{num:2d} Result:{key:<23s} {results_dict[key]}")
             # 1st available option on scoreboard - computer is not playing to win
@@ -43,7 +43,7 @@ class Play_game():
             print("\nCurrent Scoreboard Status\n")
             # for key, score in scoreboard.items():
             #     print(f"{key:<10s} {score}")
-            print('\nPLAYER RESULTS:\n')
+            print('\n' + 50*'+' + '\nPLAYER RESULTS:\n')
             results = [key for key in results_dict if key != "yahtzee_bonus"]
             for num, key in enumerate(results, 1):
                 if scoreboard[key] == None:
