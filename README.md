@@ -1,5 +1,10 @@
 # [Yahtzee Scorer](https://annwyl21.github.io/yahtzee_scorer/yahtzeedemo.html) deployed to replit
 
+To Play:
+```
+python game.py
+```
+
 - Test Driven Development (TDD) - Pytest and Pexpect
 - Using the debugger to problem solve
 - Github project, workflow & branches
