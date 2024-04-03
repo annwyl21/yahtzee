@@ -120,3 +120,5 @@ class Play_game():
 if __name__ == "__main__":
 	game = Play_game()
 	game.play_game()
+
+# add comments to explain the code
